@@ -1,11 +1,25 @@
-import React from 'react'
-import Menu from './Menu'
+import React, { Component } from "react";
+import Menu from "./Menu";
 
-export default function Fcomponent(props) {
-  return (
-    <div>
-      <h1> Hello, {props.name}</h1>
-      <Menu />
-    </div>
-  )
+export default class Fcomponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "Button pressed",
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <button
+          onClick={() => {
+            this.props.updateData(this.state.name);
+          }}
+        >
+          Press button
+        </button>
+      </div>
+    );
+  }
 }
